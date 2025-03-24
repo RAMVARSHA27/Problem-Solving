@@ -23,7 +23,7 @@ class Main
                 }
 		    }
 		}
-		if(isBalanced || st.isEmpty()){
+		if(isBalanced && st.isEmpty()){
 		    System.out.print("Balanced Parenthesis");
 		}
 		else{
