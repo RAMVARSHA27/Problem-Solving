@@ -1,0 +1,46 @@
+import java.util.*;
+class Main
+{
+	public static void main(String[] args) {
+		Scanner in=new Scanner(System.in);
+		int n=in.nextInt();
+		int sum=0, count=0;
+		int o=0;
+		int ar[]=new int[n];
+		for(int i=0;i<n;i++){
+		    ar[i]=in.nextInt();
+		}
+		int res[]=new int[n];
+		for(int i=0;i<n;i++){
+		    int temp=ar[i];
+		    sum=0;
+		    while(temp>0){
+		        int digit=temp%10;
+		        sum+=digit;
+		        temp=temp/10;
+		    }
+		    res[o]=sum;
+		    o++;
+		}
+		for(int i=0;i<n;i++){
+		    int sumOfDigits=0;
+		    int fact=1;
+		    for(int j=1;j<=res[i];j++){
+		        fact*=j;
+		    }
+		    String originalStr=String.valueOf(ar[i]);
+		    String factStr=String.valueOf(fact);
+		    boolean allPresent=true;
+		    for(char ch:originalStr.toCharArray()){
+		        if(factStr.indexOf(ch)==-1){
+		            allPresent=false;
+		            break;
+		        }
+		    }
+		    if(allPresent){
+		        count++;
+		    }
+		}
+	    System.out.print(count);
+	}
+}
